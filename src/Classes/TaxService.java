@@ -1,11 +1,12 @@
 package Classes;
 
 import Interfaces.iActorBehaviour;
+import Interfaces.iReturnOrder;
 
 /**
  * Класс TaxService, представляющий налоговую инспекцию.
  */
-public class TaxService implements iActorBehaviour {
+public class TaxService implements iActorBehaviour, iReturnOrder {
     private String name;
     private boolean isTakeOrder;
     private boolean isMakeOrder;
@@ -69,4 +70,21 @@ public class TaxService implements iActorBehaviour {
         return new OrdinaryClient(name);
     }
 
+    /**
+     * Метод для проверки возможности возврата товара.
+     * @return true - если возврат возможен, false - если нет.
+     */
+    @Override
+    public boolean isCanReturn() {
+        return true;
+    }
+
+    /**
+     * Метод для установки флага о возможности клиента вернуть заказ.
+     * @param canReturn значение флага
+     */
+    @Override
+    public void setReturnOrder(boolean canReturn){
+        //isCanReturn() = canReturn;
+    }
 }
